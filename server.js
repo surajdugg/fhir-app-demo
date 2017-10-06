@@ -9,6 +9,13 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
+// app.use('/api', api); // redirect API calls
+// app.use('/', express.static(__dirname + '/www')); // redirect root
+app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); // redirect bootstrap JS
+app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); // redirect JS jQuery
+app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css')); // redirect CSS bootstrap
+
+
 var mydb;
 
 /* Endpoint to greet and add a new visitor to database.
@@ -44,6 +51,19 @@ app.post("/api/visitors", function (request, response) {
  * [ "Bob", "Jane" ]
  * @return An array of all the visitor names
  */
+app.use(express.static(__dirname + '/views'));
+//Store all HTML files in view folder.
+
+app.get('/fields',function(req,res){
+  res.sendFile(__dirname + '/views/fields.html');
+  //It will find and locate index.html from View or Scripts
+});
+// app.get("/", function (req, res){
+//   res.sendFile('index.html');
+// });
+// app.get("/api/fields", function (req, res){
+//   res.sendFile('index.html');
+// });
 app.get("/api/visitors", function (request, response) {
   var names = [];
   if(!mydb) {

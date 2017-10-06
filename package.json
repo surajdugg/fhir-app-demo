@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "body-parser": "^1.17.x",
+    "bootstrap": "^3.3.7",
     "cfenv": "^1.0.x",
     "cloudant": "^1.7.x",
     "dotenv": "^4.0.0",
