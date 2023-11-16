@@ -1,15 +1,53 @@
+# FHIR API Viewer
+This is a simple web application that allows users to call FHIR APIs and view the returned FHIR data.
 
-# Node.js getting started application
-The Bluemix Getting started tutorial for Node.js uses this sample application to provide you with a sample workflow for working with any Node.js app on Bluemix; you set up a development environment, deploy an app locally and on Bluemix, and integrate a Bluemix database service in your app.
+## Features
+Call any public FHIR API by entering the URL
+Displays the raw JSON response from the API
+Parses the JSON and shows the data in a readable format
+Supports FHIR resources like Patient, Observation, Medication, etc.
+Usage
+Enter the URL of any public FHIR API endpoint
+Click "Call API"
+The raw JSON response will be displayed
+The parsed/formatted data will be shown below the raw JSON
 
-The Node.js app uses [Express Framework](https://expressjs.com) and [Cloudant noSQL DB service](https://console.bluemix.net/catalog/services/cloudant-nosql-db) to add information to a database and then return information from a database to the UI. To learn more about how the app connects to Cloudant, see the [Cloudant library for Node.js](https://www.npmjs.com/package/cloudant).
+For example, you could enter:
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/IBM-Bluemix/get-started-java/master/docs/GettingStarted.gif" width="300" alt="Gif of the sample app contains a title that says, Welcome, a prompt asking the user to enter their name, and a list of the database contents which are the names Joe, Jane, and Bob. The user enters the name, Mary and the screen refreshes to display, Hello, Mary, I've added you to the database. The database contents listed are now Mary, Joe, Jane, and Bob.">
-</p>
 
-The following steps are the general procedure to set up and deploy your app. See more detailed instructions in the [Getting started tutorial for Node.js](https://console.bluemix.net/docs/runtimes/nodejs/getting-started.html#getting-started-with-node-js-on-bluemix).
+> https://hapi.fhir.org/baseR4/Patient
+This will call the public HAPI FHIR server and return Patient resources.
 
-## Before you begin
+## Implementation
+This app is built using:
 
-You'll need a [Bluemix account](https://console.ng.bluemix.net/registration/), [Git](https://git-scm.com/downloads) [Cloud Foundry CLI](https://github.com/cloudfoundry/cli#downloads) and [Node](https://nodejs.org/en/) installed.
+React for the frontend UI
+Axios for making the FHIR API calls
+Bootstrap for styling
+
+The main components are:
+
+ApiCallForm - Form to enter the FHIR API URL
+ApiResponse - Displays the raw JSON response
+FormattedData - Parses the JSON and formats it to be human-readable
+The app calls the API using Axios, parses the data, and displays it using React components.
+
+## Running Locally
+To run this app locally:
+
+Clone this repo
+Run npm install
+Run npm start
+The app will be running on http://localhost:3000
+Deployment
+This app can be easily deployed to any hosting provider that supports Node & React. Some options are:
+
+Netlify
+Vercel
+AWS Amplify
+Google App Engine
+Azure Static Web Apps
+Simply configure the provider to build & run the React app on their servers.
+
+License
+This project is open source and available under the MIT License.
